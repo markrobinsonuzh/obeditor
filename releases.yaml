@@ -7,11 +7,15 @@
 # - PyPI URLs (files.pythonhosted.org) are CORS-friendly, so the worker
 #   can fetch them directly. Use a relative path for a local/dev wheel.
 
-default: "0.5.0"
+default: "0.5.1"
 
 releases:
+  - version: "0.5.1"
+    label: "0.5.1 (latest)"
+    url: "https://files.pythonhosted.org/packages/0e/42/a1d27274a9a7591076ef9b1d5b17a2c44a277f1e989ee1b2e7043024ac06/omnibenchmark-0.5.1-py3-none-any.whl"
+
   - version: "0.5.0"
-    label: "0.5.0 (latest)"
+    label: "0.5.0"
     url: "https://files.pythonhosted.org/packages/62/93/29c3caf8e3b5ad9522006dae841382ac2fd1c7e2f06235154d70c22ac4c7/omnibenchmark-0.5.0-py3-none-any.whl"
 
   - version: "0.4.0.post45"

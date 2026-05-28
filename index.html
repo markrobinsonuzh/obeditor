@@ -1289,7 +1289,7 @@ function startWorker(wheelUrl) {
   setOverlay("Initialising Pyodide…");
   setPyodideStatus("loading", "Starting…");
   // Cache-bust: worker.js evolves with index.html; keep them aligned.
-  worker = new Worker("worker.js?v=8");
+  worker = new Worker("worker.js?v=9");
 
   worker.onmessage = ({ data }) => {
     switch (data.type) {
