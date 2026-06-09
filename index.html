@@ -1401,7 +1401,7 @@ function setStatus(cls, msg) {
 }
 
 // ── Mermaid setup ────────────────────────────────────────────────────────────
-mermaid.initialize({ startOnLoad: false, theme: "dark", securityLevel: "loose" });
+mermaid.initialize({ startOnLoad: false, theme: "dark", securityLevel: "loose", flowchart: { nodeSpacing: 15, rankSpacing: 35 } });
 let _mermaidCounter = 0;
 let _mermaidLinks = {};
 
