@@ -1307,7 +1307,7 @@ function startWorker(wheelUrl) {
   setOverlay("Initialising Pyodide…");
   setPyodideStatus("loading", "Starting…");
   // Cache-bust: worker.js evolves with index.html; keep them aligned.
-  worker = new Worker("worker.js?v=9");
+  worker = new Worker("worker.js?v=10");
 
   worker.onmessage = ({ data }) => {
     switch (data.type) {
@@ -1693,7 +1693,7 @@ function renderWizard() {
           ${stagesKept} stage${stagesKept===1?"":"s"} · ${totalKept} module${totalKept===1?"":"s"} ·
           ${totalCombos} param combo${totalCombos===1?"":"s"} ·
           subset-of <code>sha256:${escapeHtml(shortHash)}…</code>
-          ${r.parent_url ? '· canonical-url <code>' + escapeHtml(r.parent_url) + '</code>' : ''}
+          ${r.parent_url ? '· provenance <code>' + escapeHtml(r.parent_url) + '</code>' : ''}
           ${loadedSourceUrl ? '· derived-from <code>' + escapeHtml(loadedSourceUrl) + '</code>' : ''}
         </div>
       </div>
