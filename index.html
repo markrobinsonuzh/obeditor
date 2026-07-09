@@ -1606,6 +1606,13 @@ require(["vs/editor/editor.main"], () => {
       (resState.fStage === "all" || r.stage === resState.fStage));
     if (!recs.length) { alert("No files under this folder match the current filters."); return; }
     const total = recs.reduce((s, r) => s + (r.size || 0), 0);
+    const HARD_LIMIT = 2 * 1024 ** 3;   // 2 GiB — in-browser gzip is capped here
+    if (total > HARD_LIMIT) {
+      alert("This selection is " + fmtSize(total) + ", over the 2 GB in-browser limit — gzipping it in " +
+        "the tab would likely run out of memory. Download a smaller subfolder (or narrow the type/stage " +
+        "filters), or use the CLI:\n\n  ob remote files download <benchmark.yaml>");
+      return;
+    }
     if (total > 1.5e9 || recs.length > 3000) {
       if (!confirm("This downloads " + recs.length + " files (" + fmtSize(total) +
         ") into browser memory and compresses them locally. Large folders can be slow or run out " +
